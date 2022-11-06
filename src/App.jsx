@@ -3,11 +3,13 @@ import { CardList } from './components/CardList'
 import { Searcher } from './components/Searcher'
 import { getPokemons } from './hooks/usePokeApi'
 import { useEffect, useState } from 'react'
+import logo from './assets/logo.svg'
 
 export function App() {
   //State
   const [pokemons,setPokemons]=useState([])
-  //State
+
+  //Effect
   useEffect(()=>{
     const getFetchedPokemons = async()=>{
       const pokemonList=await getPokemons()
@@ -15,9 +17,10 @@ export function App() {
     }
     getFetchedPokemons()
   },[])
+
   return (
     <div className="bg-gray-800 text-white text-center pt-8 text-4xl ">
-      POKEDUX
+      <img className='mx-auto w-80' src={logo}/>
       <Searcher/>
       <CardList pokemons={pokemons}/>
     </div>
