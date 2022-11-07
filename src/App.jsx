@@ -5,14 +5,16 @@ import { CardList } from './components/CardList'
 import { Searcher } from './components/Searcher'
 import { getPokemons } from './hooks/usePokeApi'
 import { setPokemonsAction } from './actions/actions'
-import { connect } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
-function App({pokemons,setPokemons}) {
+export function App() {
+  const pokemons=useSelector(state=>state.pokemons)
+  const dispatch=useDispatch()
   // Effect
   useEffect(()=>{
     const getFetchedPokemons = async()=>{
       const pokemonList=await getPokemons()
-      setPokemons(pokemonList)
+      dispatch(setPokemonsAction(pokemonList))
     }
     getFetchedPokemons()
   },[])
@@ -26,13 +28,3 @@ function App({pokemons,setPokemons}) {
     </div>
   )
 }
-// Redux
-const mapStateToProps=(state)=>({
-  pokemons:state.pokemons
-})
-const mapDispatchToProps=(dispatch)=>({
-  setPokemons:(value)=>dispatch(setPokemonsAction(value))
-})
-/////////
-
-export default connect(mapStateToProps,mapDispatchToProps)(App)
