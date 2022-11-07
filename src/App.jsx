@@ -1,15 +1,14 @@
+import logo from './assets/logo.svg'
 import './styles/App.css'
+import { useEffect} from 'react'
 import { CardList } from './components/CardList'
 import { Searcher } from './components/Searcher'
 import { getPokemons } from './hooks/usePokeApi'
-import { useEffect, useState } from 'react'
-import logo from './assets/logo.svg'
+import { setPokemonsAction } from './actions/actions'
+import { connect } from 'react-redux'
 
-export function App() {
-  //State
-  const [pokemons,setPokemons]=useState([])
-
-  //Effect
+function App({pokemons,setPokemons}) {
+  // Effect
   useEffect(()=>{
     const getFetchedPokemons = async()=>{
       const pokemonList=await getPokemons()
@@ -17,6 +16,7 @@ export function App() {
     }
     getFetchedPokemons()
   },[])
+  ////////
 
   return (
     <div className="bg-gray-800 text-white text-center pt-8 text-4xl ">
@@ -26,3 +26,13 @@ export function App() {
     </div>
   )
 }
+// Redux
+const mapStateToProps=(state)=>({
+  pokemons:state.pokemons
+})
+const mapDispatchToProps=(dispatch)=>({
+  setPokemons:(value)=>dispatch(setPokemonsAction(value))
+})
+/////////
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
