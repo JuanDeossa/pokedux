@@ -20,7 +20,7 @@ export function App() {
 
   return (
     <div className="bg-gray-800 text-white text-center pt-8 text-4xl ">
-      <img className='mx-auto w-80' src={logo}/>
+      <img className='mx-auto w-60' src={logo}/>
       <Searcher/>
       <CardList pokemons={pokemons}/>
     </div>

@@ -2,7 +2,7 @@ import { GoThumbsup } from 'react-icons/go';
 export function Card({pokemon}) {
   const {name}=pokemon
   return (
-    <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="mx-auto w-60 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 lg:w-52 xl:w-60">
       <a href="#">
           <img className=" mx-auto rounded-t-lg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="{name}"/>
       </a>
