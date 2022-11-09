@@ -3,7 +3,7 @@ import './styles/App.css'
 import { useEffect} from 'react'
 import { CardList } from './components/CardList'
 import { Searcher } from './components/Searcher'
-import { getPokemons } from './hooks/usePokeApi'
+import { getPokemonDetails, getPokemons } from './hooks/usePokeApi'
 import { setPokemonsAction } from './actions/actions'
 import { useSelector,useDispatch } from 'react-redux'
 
@@ -14,7 +14,10 @@ export function App() {
   useEffect(()=>{
     const getFetchedPokemons = async()=>{
       const pokemonList=await getPokemons()
-      dispatch(setPokemonsAction(pokemonList))
+      const pokemonsDetailed=await Promise.all(pokemonList.map(pokemon=>
+          getPokemonDetails(pokemon)
+      ))
+      dispatch(setPokemonsAction(pokemonsDetailed))
     }
     getFetchedPokemons()
   },[])
