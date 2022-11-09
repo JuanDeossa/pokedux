@@ -8,7 +8,7 @@ import {applyMiddleware, compose, legacy_createStore as createStore} from "redux
 import { logger } from './middlewares'
 import thunk from 'redux-thunk'
 
-const composeAlt=window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose
+const composeAlt=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const composedEnhancer=composeAlt(
   applyMiddleware(thunk,logger)
