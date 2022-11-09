@@ -8,7 +8,12 @@ export const myFirstPokemon=(store)=>(next)=>(actionInfo)=>{
     ...actionInfo,
     action:{
       ...actionInfo.action,
-      payload:[{name:'First Pokemon',},...actionInfo.action.payload]
+      payload:
+        actionInfo.action.payload.map(pokemon=>({
+          ...pokemon,
+          name:`Pokemon:\n${pokemon.name}`
+        })
+      )
     }
   })
 }
