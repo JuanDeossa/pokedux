@@ -1,8 +1,12 @@
 import { getPokemonDetails } from "../hooks/usePokeApi";
-import { SET_POKEMONS } from "./types";
+import { SET_LOADING, SET_POKEMONS } from "./types";
 
 export const setPokemonsAction=(payload)=>({
   type:SET_POKEMONS,
+  payload,
+})
+export const setLoadingAction=(payload)=>({
+  type:SET_LOADING,
   payload,
 })
 
@@ -11,4 +15,5 @@ export const getPokemonsWithDetailsAction=(pokemons=[])=>async(dispatch)=>{
     getPokemonDetails(pokemon)
   ))
   dispatch(setPokemonsAction(pokemonsDetailed))
+  dispatch(setLoadingAction(false))
 }
