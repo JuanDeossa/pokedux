@@ -2,7 +2,7 @@ import { Card } from "./Card";
 
 export function FavoritesList({pokemons}) {
   return (
-    <div className="w-full mt-6 grid grid-cols-1 gap-y-5 justify-center items-center lg:grid-cols-4 lg:gap-x-0 xl:grid-cols-6">
+    <div className="mx-8 mt-6 pb-2 grid grid-flow-col gap-x-5 justify-start items-center overflow-x-auto">
       {pokemons.map((pokemon,i)=>(
         <Card pokemon={pokemon} key={pokemon.id} name={pokemon.name} image={pokemon.sprites.front_default} types={pokemon.types} id={pokemon.id}/>
       ))}
