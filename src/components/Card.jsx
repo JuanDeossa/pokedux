@@ -3,7 +3,7 @@ export function Card({name,image,types}) {
   return (
     <div className="mx-auto w-60 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 lg:w-52 xl:w-60">
       <a href="#">
-          <img className=" mx-auto rounded-t-lg" src={image} alt={name}/>
+          <img className=" mx-auto rounded-t-lg w-40" src={image} alt={name}/>
       </a>
       <div className="pb-5">
         <a href="#">
