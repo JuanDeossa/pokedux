@@ -2,7 +2,7 @@ import axios from "axios"
 import { useDispatch } from "react-redux"
 import { setLoadingAction } from "../actions/actions"
 
-const URL='https://pokeapi.co/api/v2/pokemon?limit=151'
+const URL='https://pokeapi.co/api/v2/pokemon?limit=18'
 
 
 export const getPokemons= async(dispatch)=>{
@@ -13,7 +13,7 @@ export const getPokemons= async(dispatch)=>{
     throw new Error(error)
   }
 }
-export const getPokemonDetails= async(pokemon,dispatch)=>{
+export const getPokemonDetails= async(pokemon)=>{
   try {
     const {data}=await axios.get(pokemon.url)
     return data

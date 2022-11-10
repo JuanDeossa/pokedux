@@ -1,5 +1,5 @@
 import { getPokemonDetails } from "../hooks/usePokeApi";
-import { SET_LOADING, SET_POKEMONS } from "./types";
+import { SET_FAVORITE, SET_LOADING, SET_POKEMONS } from "./types";
 
 export const setPokemonsAction=(payload)=>({
   type:SET_POKEMONS,
@@ -7,6 +7,10 @@ export const setPokemonsAction=(payload)=>({
 })
 export const setLoadingAction=(payload)=>({
   type:SET_LOADING,
+  payload,
+})
+export const setFvorite=(payload)=>({
+  type:SET_FAVORITE,
   payload,
 })
 
