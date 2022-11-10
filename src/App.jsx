@@ -6,10 +6,8 @@ import { Searcher } from './components/Searcher'
 import { getPokemons } from './hooks/usePokeApi'
 import { getPokemonsWithDetailsAction, setLoadingAction, setPokemonsAction } from './actions/actions'
 import { useSelector,useDispatch } from 'react-redux'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { CardListSkeleton } from './components/CardListSkeleton'
-import { FavoritesList } from './components/FavoritesList'
+import { FavoritesSection } from './components/FavoritesSection'
 
 
 export function App() {
@@ -34,7 +32,7 @@ export function App() {
       <Searcher/>
       {loading
         ?<CardListSkeleton/>
-        :<FavoritesList pokemons={favorites}/>
+        :<FavoritesSection favorites={favorites}/>
       }
       {loading
         ?<CardListSkeleton/>
