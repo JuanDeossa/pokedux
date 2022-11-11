@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {App} from './App'
-import { pokemonsReducer } from './reducers/pokemonsReducer'
 import './styles/index.css'
 import { Provider } from 'react-redux'
 import {applyMiddleware, compose, legacy_createStore as createStore} from "redux";
 import { logger } from './middlewares'
 import thunk from 'redux-thunk'
+import {mainReducer} from './reducers/mainReducer'
 
 const composeAlt=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -15,7 +15,7 @@ const composedEnhancer=composeAlt(
 )
 
 const store=createStore(
-  pokemonsReducer,
+  mainReducer,
   composedEnhancer,
 )
 

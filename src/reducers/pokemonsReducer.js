@@ -1,12 +1,10 @@
-import { SET_FAVORITE, SET_LOADING, SET_POKEMONS } from "../actions/types";
+import { SET_FAVORITE,SET_POKEMONS } from "../actions/types";
 
-const initialState={
+
+export const pokemonsReducer=(state={
   pokemons:[],
-  loading:false,
   favorites:[],
-}
-
-export const pokemonsReducer=(state=initialState,action)=>{
+},action)=>{
   switch (action.type) {
     case SET_POKEMONS:
       const pokemonsArray=action.payload.map(pokemon=>({
@@ -17,11 +15,6 @@ export const pokemonsReducer=(state=initialState,action)=>{
       return{
         ...state,
         pokemons:pokemonsArray
-      }
-    case SET_LOADING:
-      return{
-        ...state,
-        loading:action.payload
       }
     case SET_FAVORITE:
       const id = action.payload.id

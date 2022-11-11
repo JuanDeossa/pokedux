@@ -11,9 +11,9 @@ import { FavoritesSection } from './components/FavoritesSection'
 
 
 export function App() {
-  const pokemons=useSelector(state=>state.pokemons)
-  const favorites=useSelector(state=>state.favorites)
-  const loading=useSelector(state=>state.loading)
+  const pokemons=useSelector(state=>state.data.pokemons)
+  const favorites=useSelector(state=>state.data.favorites)
+  const loading=useSelector(state=>state.ui.loading)
   const dispatch=useDispatch()
   // Effect
   useEffect(()=>{
